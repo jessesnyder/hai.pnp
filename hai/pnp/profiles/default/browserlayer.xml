@@ -1,0 +1,4 @@
+<layers>
+    <layer name="hai.pnp" 
+           interface="hai.pnp.interfaces.IHAIPolicyProcedureLayer" />
+</layers>

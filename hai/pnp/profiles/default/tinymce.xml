@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object>
+ <resourcetypes>
+  <linkable purge="false">
+   <element value="Manual"/>
+   <element value="Policy"/>
+   <element value="Procedure"/>
+   <element value="Form"/>
+   <element value="Howto"/>
+  </linkable>
+ </resourcetypes>
+</object>

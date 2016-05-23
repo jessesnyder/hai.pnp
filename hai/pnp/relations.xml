@@ -1,0 +1,262 @@
+<?xml version="1.0" ?>
+<RelationsLibrary>
+<RulesetCollection id="HAIPoliciesAndProcedures" title="HAI Policies and Procedures" uid="cefd914e1166b94298f2907d08a1adc9">
+  <Ruleset id="policies_procedures" title="policies_procedures" uid="982def69845871304c9175982be44f89">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="8988c526a37a772dcc539d9b84e9bf42">
+      <allowedSourceType>
+        Policy
+      </allowedSourceType>
+      <allowedTargetType>
+        Procedure
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator.2010-07-23.2917765723" title="inverse_implicator" uid="684ade31570313d5698d7bbd72560a1e">
+      <inverseRuleset uidref="778dbc1a8d75b709d4ff71e54c14b306"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="procedures_policies" title="procedures_policies" uid="778dbc1a8d75b709d4ff71e54c14b306">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="c4fcde20d7e7077aea492783d91cc0f2">
+      <allowedSourceType>
+        Procedure
+      </allowedSourceType>
+      <allowedTargetType>
+        Policy
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator.2010-07-23.3569505826" title="inverse_implicator" uid="6eccf420b90b09462c0b83172a4d42a8">
+      <inverseRuleset uidref="982def69845871304c9175982be44f89"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="policya_policyb" title="policya_policyb" uid="d96a5ea24a6d0cab104d3b282b8dadd2">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="6e2096c42ee50a381cbe53529d016bca">
+      <allowedSourceType>
+        Policy
+      </allowedSourceType>
+      <allowedTargetType>
+        Policy
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="e740485397868f6be254bf33c81ea720">
+      <inverseRuleset uidref="d96a5ea24a6d0cab104d3b282b8dadd2"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="procedurea_procedureb" title="procedurea_procedureb" uid="31199bf1cb7563bd946928032707c9cc">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="efbd3d9e8e00365b2ed7faf63b7c33d5">
+      <allowedSourceType>
+        Procedure
+      </allowedSourceType>
+      <allowedTargetType>
+        Procedure
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator.2010-07-23.4604693122" title="inverse_implicator" uid="efb113a3d43f7042f5b630398901042c">
+      <inverseRuleset uidref="31199bf1cb7563bd946928032707c9cc"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="policies_howtos" title="policies_howtos" uid="bc7124c951c2eca64c1b8c47e365b75d">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="adec4eb7b3367df100e03157adea70e1">
+      <allowedSourceType>
+        Policy
+      </allowedSourceType>
+      <allowedTargetType>
+        Howto
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="9e526fb6032c7d972d3d3e94ecf80dc9">
+      <inverseRuleset uidref="7f7afeba12635f21d50109f071ca4e46"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="howtos_policies" title="howtos_policies" uid="7f7afeba12635f21d50109f071ca4e46">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="b25b6fa488efca35d2daaf93552a8df4">
+      <allowedSourceType>
+        Howto
+      </allowedSourceType>
+      <allowedTargetType>
+        Policy
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="1799a9c6ecae0a4a567966e8e4456219">
+      <inverseRuleset uidref="bc7124c951c2eca64c1b8c47e365b75d"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="howtoa_howtob" title="howtoa_howtob" uid="2fc1f269329cc28f197912833a69663a">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="7ad9b186585e72d256cc3337a7539c91">
+      <allowedSourceType>
+        Howto
+      </allowedSourceType>
+      <allowedTargetType>
+        Howto
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="e086569acf8c5cdd093046b3b00ac20a">
+      <inverseRuleset uidref="2fc1f269329cc28f197912833a69663a"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="procedures_howtos" title="procedures_howtos" uid="05cbb064906d6bc40efe04867c7e6ec8">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="f491e35ba7c65b215945b64485dd0f32">
+      <allowedSourceType>
+        Procedure
+      </allowedSourceType>
+      <allowedTargetType>
+        Howto
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="320bfd229b849096806140fa07bcbd4a">
+      <inverseRuleset uidref="3a65a251f3127dcfee6f61138cb093aa"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="howtos_procedures" title="howtos_procedures" uid="3a65a251f3127dcfee6f61138cb093aa">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="15578f2277a77e25e329e6108383669e">
+      <allowedSourceType>
+        Howto
+      </allowedSourceType>
+      <allowedTargetType>
+        Procedure
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="e598701947e024cc763d56fee7c3799b">
+      <inverseRuleset uidref="05cbb064906d6bc40efe04867c7e6ec8"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="forms_howtos" title="forms_howtos" uid="a747f53c063b193c8c5ea8f826ae5125">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="35d38be9cb66065dfa4e4ed89485af4f">
+      <allowedSourceType>
+        Form
+      </allowedSourceType>
+      <allowedTargetType>
+        Howto
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="38e4117f453e192a57941abfd0ea3e08">
+      <inverseRuleset uidref="3cafc9961a9660eaa0bd0c57454f7057"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="howtos_forms" title="howtos_forms" uid="3cafc9961a9660eaa0bd0c57454f7057">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="905434e7126cbd45ba0a701e852eab16">
+      <allowedSourceType>
+        Howto
+      </allowedSourceType>
+      <allowedTargetType>
+        Form
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="0129de7789aa23bc3e8165757d6ae59a">
+      <inverseRuleset uidref="a747f53c063b193c8c5ea8f826ae5125"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="forma_formb" title="forma_formb" uid="1ac6af8deba5675208caa6e5134045cf">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="0be7572478c986eba67681d5a39c062d">
+      <allowedSourceType>
+        Form
+      </allowedSourceType>
+      <allowedTargetType>
+        Form
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="314928e172676b4002e6c79651017a1e">
+      <inverseRuleset uidref="1ac6af8deba5675208caa6e5134045cf"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="forms_policies" title="forms_policies" uid="541f937256252abf211c49e9350491a1">
+  <about>
+      
+  </about>
+  <TypeConstraint id="type_constraint" title="type_constraint" uid="245cd91307630395eb7fba6398f1af14">
+    <allowedSourceType>
+      Form
+    </allowedSourceType>
+    <allowedTargetType>
+      Policy
+    </allowedTargetType>
+  </TypeConstraint>
+  <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="1e1ea1da69b7b189b88262b66ee3629c">
+    <inverseRuleset uidref="1726d46265a1667116dfb1659dde5359"/>
+  </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="policies_forms" title="policies_forms" uid="1726d46265a1667116dfb1659dde5359">
+  <about>
+    
+  </about>
+  <TypeConstraint id="type_constraint" title="type_constraint" uid="9a43d401adc8e19a5cfceaa9f97f714c">
+    <allowedSourceType>
+      Policy
+    </allowedSourceType>
+    <allowedTargetType>
+      Form
+    </allowedTargetType>
+  </TypeConstraint>
+  <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="cb0181de4d39c5e3af5c89fed04088d2">
+    <inverseRuleset uidref="541f937256252abf211c49e9350491a1"/>
+  </InverseImplicator>
+  </Ruleset>
+  
+  <Ruleset id="procedures_forms" title="procedures_forms" uid="17d2f3561007655bb98ef61ea5a79f21">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="e00d96c81339ad18b722ad04d08fefb2">
+      <allowedSourceType>
+        Procedure
+      </allowedSourceType>
+      <allowedTargetType>
+        Form
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="7b90668563e5d7e0abe6d75a031655f3">
+      <inverseRuleset uidref="6cef42feaf16d444db35fabcf3f7ecc6"/>
+    </InverseImplicator>
+  </Ruleset>
+  <Ruleset id="forms_procedures" title="forms_procedures" uid="6cef42feaf16d444db35fabcf3f7ecc6">
+    <about>
+      
+    </about>
+    <TypeConstraint id="type_constraint" title="type_constraint" uid="36952a69763b82fd9b9c7b21655843ef">
+      <allowedSourceType>
+        Form
+      </allowedSourceType>
+      <allowedTargetType>
+        Procedure
+      </allowedTargetType>
+    </TypeConstraint>
+    <InverseImplicator id="inverse_implicator" title="inverse_implicator" uid="fa0113c0a279f4d0139c8a3d8a70a2d0">
+      <inverseRuleset uidref="17d2f3561007655bb98ef61ea5a79f21"/>
+    </InverseImplicator>
+  </Ruleset>  
+</RulesetCollection>
+</RelationsLibrary>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="policy_procedure_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="Form">
+   <bound-workflow workflow_id="policy_procedure_workflow"/>
+  </type>
+  <type type_id="Howto">
+   <bound-workflow workflow_id="policy_procedure_workflow"/>
+  </type>
+  <type type_id="Policy">
+   <bound-workflow workflow_id="policy_procedure_workflow"/>
+  </type>
+  <type type_id="Procedure">
+   <bound-workflow workflow_id="policy_procedure_workflow"/>
+  </type>
+  <type type_id="Manual">
+   <bound-workflow workflow_id="policy_procedure_workflow"/>
+  </type>
+ </bindings>
+</object>

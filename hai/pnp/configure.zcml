@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="hai.pnp">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <!-- Product dependencies -->
+  <include package="Products.Relations" />
+  
+  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <include package=".browser" />
+  <include package=".content" />
+  
+  <!-- Register the installation GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="HAI Policies and Procedures"
+      directory="profiles/default"
+      description="Content types and workflows for HAI's policies and procedures"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+</configure>

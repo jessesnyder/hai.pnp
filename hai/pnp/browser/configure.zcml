@@ -1,0 +1,68 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="hai.pnp">
+
+  <include package="plone.app.contentmenu" />
+
+  <!-- -*- extra stuff goes here -*- -->
+  <browser:view
+      name="metadata-view"
+      for="..interfaces.IPolicyProcedure"
+      class=".basecontent.BasePnPView"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="..interfaces.IPolicyProcedure"
+      name="manual_view"
+      template="templates/manual_view.pt"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="..interfaces.IPolicyProcedure"
+      name="policy_view"
+      template="templates/policy_view.pt"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="..interfaces.IPolicyProcedure"
+      name="procedure_view"
+      template="templates/procedure_view.pt"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+
+  <browser:page
+      for="..interfaces.IPolicyProcedure"
+      name="howto_view"
+      template="templates/howto_view.pt"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+
+  <browser:page
+      for="..interfaces.IPolicyProcedure"
+      name="policy_print_view"
+      template="templates/policy_print_view.pt"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="..interfaces.IPolicyProcedure"
+      name="manual_print_view"
+      template="templates/manual_print_view.pt"
+      layer="..interfaces.IHAIPolicyProcedureLayer"
+      permission="zope2.View"
+      />
+
+
+</configure>

@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+           tal:define="kssClassesView context/@@kss_field_decorator_view;
+                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+		       view python:context.restrictedTraverse('@@metadata-view');
+		       lastVisited python:view.createLastVisited(formattedString=(context.REQUEST.SESSION.has_key('history') and (context.REQUEST.SESSION['history']) or None));
+		       cookie python:context.REQUEST.SESSION.set('history', lastVisited);
+                       templateId template/getId;
+                       text here/getText;">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+	<ul class="pnp-history" 
+	    tal:define="tokens python:view.getLastVisited(formattedString=lastVisited)"
+	    tal:condition="tokens">
+	  <li tal:repeat="token tokens"><a tal:attributes="href python:view.getLinkFromToken(token)" tal:content="python:view.getIdFromToken(token)">[stuff]</a> > </li>
+	</ul>
+
+	<table tal:attributes="class string:metadata ">
+	  <tr class="topbar"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><th>ID:</th><td tal:content="context/getId">[id]</td><th>Functional Area:</th><td tal:content="string: NA">[id]</td></tr>
+          <tr><th>Name:</th><td tal:content="context/Title">[name]</td><th>Effective Date:</th><td tal:content="string: NA">[id]</td></tr>
+          <tr><th>Contact:</th><td tal:content="string: contact">[contact]</td><th>Revised Date:</th><td tal:content="context/ModificationDate">[id]</td></tr>
+          <tr><th>Purpose:</th><td tal:content="context/Description">[description ]</td><th>Approved by:</th><td tal:content="string: NA">[id]</td></tr>
+        </table>
+
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+
+	<p><a tal:attributes="href string: ${context/absolute_url}/manual_print_view">[ View the printable manual ]</a></p>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <p tal:condition="python: not text and is_editable"
+           i18n:translate="no_body_text"
+           class="discreet">
+            This item does not have any body text, click the edit tab to change it.
+        </p>
+
+        <metal:field use-macro="python:here.widget('text', mode='view')">
+        Body text
+        </metal:field>
+        <h3>Table of Contents</h3>
+        <div class="manual-toc" tal:content="structure context/toc">
+          [Table of contents]
+        </div>
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+    
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

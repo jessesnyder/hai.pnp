@@ -1,0 +1,60 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="hai.pnp">
+
+  <!-- configure your content components here -->
+
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".howto.Howto">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IHowto"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IHowto"
+        />
+  </class>
+  <class class=".form.Form">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IForm"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IForm"
+        />
+  </class>
+  <class class=".procedure.Procedure">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IProcedure"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IProcedure"
+        />
+  </class>
+  <class class=".policy.Policy">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IPolicy"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IPolicy"
+        />
+  </class>
+  <class class=".manual.Manual">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IManual"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IManual"
+        />
+  </class>
+
+</configure>

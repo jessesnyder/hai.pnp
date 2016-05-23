@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object>
+  <difftypes>
+    <type portal_type="Policy">
+      <field name="any" difftype="Compound Diff for AT types"/>
+    </type>
+    <type portal_type="Procedure">
+      <field name="any" difftype="Compound Diff for AT types"/>
+    </type>
+    <type portal_type="Howto">
+      <field name="any" difftype="Compound Diff for AT types"/>
+    </type>
+  </difftypes>
+</object>

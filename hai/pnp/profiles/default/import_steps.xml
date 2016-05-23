@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="hai.pnp-various" version="0.1"
+               handler="hai.pnp.setuphandlers.setupVarious"
+               title="HAI Policy and Procedures Setup">
+  </import-step>
+</import-steps>

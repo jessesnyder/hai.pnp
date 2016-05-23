@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="policy_procedure_workflow"
+             title="HAI Policy and Procedure Workflow"
+             description="Custom workflow for HAI Policies, Procedures, Form/Templates and How-tos"
+             state_variable="review_state"
+             initial_state="draft">
+ <permission>Access contents information</permission>
+ <permission>Change portal events</permission>
+ <permission>Modify portal content</permission>
+ <permission>View</permission>
+ <state state_id="draft" title="Draft">
+  <exit-transition transition_id="make_official"/>
+  <exit-transition transition_id="make_provisional"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+  </permission-map>
+  <permission-map name="Change portal events"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="official" title="Official">
+  <exit-transition transition_id="make_draft"/>
+  <exit-transition transition_id="make_provisional"/>
+  <exit-transition transition_id="deprecate"/>
+  <exit-transition transition_id="retire"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Member</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Change portal events"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Member</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="provisional" title="Provisional">
+  <exit-transition transition_id="make_draft"/>
+  <exit-transition transition_id="make_official"/>
+  <exit-transition transition_id="retire"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+  <permission-map name="Change portal events"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="deprecated" title="Deprecated">
+  <exit-transition transition_id="make_provisional"/>
+  <exit-transition transition_id="make_official"/>
+  <exit-transition transition_id="retire"/>     
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+  <permission-map name="Change portal events"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="retired" title="Retired">
+  <exit-transition transition_id="deprecate"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+  <permission-map name="Change portal events"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Reviewer</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="make_draft"
+             title="Return to Draft" new_state="draft"
+             trigger="USER" before_script="" after_script="">
+  <description>Return this object to draft state</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=make_draft"
+          category="workflow">Re-draft</action>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="make_official"
+             title="Promote to Official"
+             new_state="official" trigger="USER"
+             before_script="" after_script="">
+  <description>Mark this object as the current official version</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=make_official"
+          category="workflow">Promote to Official</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="make_provisional"
+             title="Submit as Provisional"
+             new_state="provisional" trigger="USER"
+             before_script="" after_script="">
+  <description>Mark this object as provisional</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=make_provisional"
+          category="workflow">Submit as Provisional</action>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="deprecate" title="Deprecate"
+             new_state="deprecated" trigger="USER"
+             before_script="" after_script="">
+  <description>Mark this object as deprecated</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=deprecate"
+          category="workflow">Deprecate</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="retire" title="Retire"
+             new_state="retired" trigger="USER"
+             before_script="" after_script="">
+  <description>Mark this object as retired</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=retire"
+          category="workflow">Retire</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </transition>
+ <worklist worklist_id="reviewer_queue" title="">
+  <description>Reviewer tasks</description>
+  <action url="%(portal_url)s/search?review_state=provisional"
+          category="global">Currently Provisional (%(count)d)</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+  <match name="review_state" values="provisional"/>
+ </worklist>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Previous transition
+</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition
+</description>
+  <default>
+   
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comment about the last transition
+</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history
+</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>When the previous transition was performed
+</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+</dc-workflow>
